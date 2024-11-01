@@ -14,6 +14,8 @@ const app = express();
 // Server app configuration goes here
 // middleware, routes, etc. 
 
+app.use(express.json());
+
 
 // app.verb(path, callback);
 app.get("/", (request, response) => {
@@ -24,6 +26,8 @@ app.get("/", (request, response) => {
     });
 });
 
+const PostController = require("./controllers/PostController.js");
+app.use("/posts", PostController);
 
 // Server app configuration is finished by this point
 
