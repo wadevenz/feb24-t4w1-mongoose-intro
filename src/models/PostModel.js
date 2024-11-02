@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { LocalisedContentModel } = require("./LocalisedContent");
 
 // 1. Make a schema
 
@@ -11,7 +12,8 @@ const PostSchema = mongoose.Schema({
         trim: true,
         // unique: true
     },
-    content: String,
+    // content: String,
+    content: [LocalisedContentModel],
     date: {
         type: Date,
         default: Date.now // Mongoose will run Date.now() every time will make a doc
